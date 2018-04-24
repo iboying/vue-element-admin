@@ -1,0 +1,70 @@
+*
+  box-sizing border-box
+html, body
+  background #ffffff
+  margin 0
+  padding 0
+  height 100%
+ul
+  padding 0
+  margin 0
+  list-style none
+a:hover
+  text-decoration none
+.font-10
+  font-size 10px
+.font-12
+  font-size 12px
+.font-14
+  font-size 14px
+.font-16
+  font-size 16px
+.font-18
+  font-size 18px
+// text colors
+.text-gray
+  color #8a8a8a !important
+.text-red
+  color #e50114 !important
+.text-black
+  color #212121 !important
+// text align
+.text-right
+  text-align right
+.text-center
+  text-align center
+// float
+.float-left
+  float left
+.float-right
+  float right
+.clearfix::after
+  content '.'
+  height 0
+  visibility hidden
+  display block
+  clear both
+// text ellipsis
+mutiple-line(n)
+  display -webkit-box
+  -webkit-box-orient vertical
+  -webkit-line-clamp n
+  overflow hidden
+.one-line
+  mutiple-line(1)
+.two-line
+  mutiple-line(2)
+.three-line
+  mutiple-line(3)
+// init btn
+.btn
+  border none
+  outline none
+  margin 0
+  padding 0
+  background none
+// common class helper
+.container
+  padding 16px
+  overflow auto
+  zoom 1

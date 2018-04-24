@@ -1,0 +1,23 @@
+// 响应式布局断点
+$--sm: 768px;
+$--md: 992px;
+$--lg: 1200px;
+$--xl: 1920px;
+// 状态颜色
+$--color-primary: #409EFF;
+$--color-success: #67C23A;
+$--color-warning: #EB9E05;
+$--color-danger: #FA5555;
+$--color-info: #878D99;
+// 文字颜色
+$--color-text-primary: #2D2F33; // 主要文字颜色
+$--color-text-regular: #5A5E66; // 常规文字颜色
+$--color-text-secondary: #878D99; // 次要文字颜色
+$--color-text-placeholder: #B4BCCC; // 占位文字颜色
+// 边框颜色
+$--border-color-base: #D8DCE5;
+$--border-color-light: #DFE4ED;
+$--border-color-lighter: #E6EBF5;
+$--border-color-extra-light: #EDF2FC;
+// 字体路径
+$--font-path: 'fonts';
