@@ -1,6 +1,3 @@
-# africa-tour-erp
-
-> A ERP system for africa tourism product.
 
 ## Build Setup
 
