@@ -1,6 +1,13 @@
 <script>
 export default {
   name: 'Sidebar',
+  data() {
+    return {
+      backgroundColor: '#EAEEF1',
+      textColor: '#424e67',
+      activeTextColor: '#3b8cff',
+    };
+  },
   computed: {
     isCollapse() {
       return this.$store.state.isCollapse;
@@ -15,9 +22,9 @@ export default {
     :default-active="$route.path"
     router
     :collapse="isCollapse"
-    background-color="#E9EEF1"
-    text-color="#424e67"
-    active-text-color="#3b8cff"
+    :background-color="backgroundColor"
+    :text-color="textColor"
+    :active-text-color="activeTextColor"
   )
     el-menu-item(index="/dashboards")
       i.fa.fa-pie-chart
@@ -53,9 +60,15 @@ $sideWidth = 200px
       white-space nowrap
       text-overflow ellipsis
       &:hover
-        background-color #DDE2E5
+        background-color #DDE2E5 !important
+    .is-active
+      font-weight bold
     .fa
+      box-sizing content-box
       padding 5px
+      width 14px
+      height 14px
+      text-align center
     .menu-name
       width 100%
       padding-left 10px

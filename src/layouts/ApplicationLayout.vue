@@ -27,9 +27,8 @@ el-container.application
     el-aside(width="initial").app-side
       sidebar
     el-main.app-main
-      transition
-        keep-alive(:include="keepAliveInclude", :exclude="keepAliveExclude")
-          router-view
+      keep-alive(:include="keepAliveInclude", :exclude="keepAliveExclude")
+        router-view
 </template>
 
 <style lang="stylus" scoped>
@@ -41,7 +40,7 @@ el-container.application
     padding 0
     z-index 10
   .app-side
-    height 100%
+    display block
   .app-main
     position relative
     width 100%

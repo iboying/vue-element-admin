@@ -1,6 +1,17 @@
 <script>
 export default {
   name: 'Toolbar',
+  data() {
+    return {
+      langs: [{
+        label: 'English',
+        lang: 'en',
+      }, {
+        label: '中文',
+        lang: 'zh',
+      }],
+    };
+  },
   methods: {
     async logout() {
       const loading = this.$loading({ fullscreen: true, text: '正在退出...' });
@@ -17,6 +28,12 @@ export default {
     toggleSideMenu() {
       this.$store.commit('TOGGLE_SIDE_MENU');
     },
+    changeLang(lang) {
+      if (this.$store.state.lang !== lang) {
+        this.$store.commit('SET_LANG', lang);
+        location.reload();
+      }
+    },
   },
 };
 </script>
@@ -28,6 +45,14 @@ export default {
       i.fa.fa-navicon
     img.logo(src="/static/common/logo.svg", alt="logo")
   ul.menus
+    //- li.menu-item
+    //-   el-dropdown
+    //-     span.lang-text
+    //-       | {{ $t(`components.toolbar.${$store.state.lang}`) }}
+    //-       i.el-icon-arrow-down.el-icon--right
+    //-     el-dropdown-menu(slot="dropdown")
+    //-       el-dropdown-item(v-for="item in langs", :key="item.label", @click.native="changeLang(item.lang)")
+    //-         | {{ item.label }}
     li.menu-item
       router-link.menu__item(to="/")
         i.fa.fa-bell

@@ -1,4 +1,6 @@
-export default {
+import Vue from 'vue';
+
+Vue.prototype.$utils = {
   getDateTimeArray(date) {
     if (!date) return date;
     const dateTimeArray = (new Date(date)).toJSON().slice(0, -5).split('T');

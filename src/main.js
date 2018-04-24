@@ -4,18 +4,24 @@ import Vue from 'vue';
 import App from '@/App';
 import router from '@/router';
 import store from '@/store';
-import ElementUI from 'element-ui';
-import '@/element-variables.scss';
-import 'element-ui/lib/theme-chalk/index.css';
-import i18n from '@/i18n';
 import apis from '@/apis';
+import { i18n } from '@/i18n';
+// plugins
+import '@/plugins/mixin';
+import '@/plugins/utils';
+// UI
+import ElementUI from 'element-ui';
+import '@/assets/stylesheets/element-variables.scss';
+import 'element-ui/lib/theme-chalk/index.css';
 
 Vue.config.productionTip = false;
 
+Vue.prototype.$config = process.env;
 Vue.prototype.$apis = apis;
+
 Vue.use(ElementUI, {
-  i18n: (key, value) => i18n._t(key, value),
-  size: 'small',
+  i18n: (key, value) => i18n.t(key, value),
+  size: 'mini',
 });
 
 /* eslint-disable no-new */

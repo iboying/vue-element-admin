@@ -7,11 +7,15 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    lang: 'zh',
     token: '',
     loading: false,
     isCollapse: false,
   },
   mutations: {
+    [types.SET_LANG](state, payload) {
+      state.lang = payload;
+    },
     [types.SET_TOKEN](state, payload) {
       state.token = payload;
     },
@@ -30,7 +34,7 @@ export default new Vuex.Store({
   },
   plugins: [
     createPersistedState({
-      paths: ['token'],
+      paths: ['token', 'lang'],
     }),
   ],
 });
