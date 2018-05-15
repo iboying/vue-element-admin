@@ -1,10 +1,18 @@
 import axios from 'axios';
 import store from '@/store';
+import router from '@/router';
+import qs from 'qs';
 import { Message } from 'element-ui';
 
 const instance = axios.create({
   baseURL: process.env.DOMAIN,
-  timeout: 3000,
+  paramsSerializer(params) {
+    return qs.stringify(params, {
+      encode: true,
+      arrayFormat: 'brackets',
+      skipNulls: true,
+    });
+  },
 });
 
 instance.interceptors.request.use((config) => {
@@ -27,7 +35,9 @@ instance.interceptors.response.use((response) => {
   return response;
 }, (error) => {
   store.commit('SET_LOADING', false);
-  Message.error('错误啦');
+  if (error.response.status === 401) {
+    router.replace('/auth/login');
+  }
   return Promise.reject(error);
 });
 
